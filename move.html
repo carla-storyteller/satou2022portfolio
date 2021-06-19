@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+  <title>丸タイプドロワーテスト</title>
+
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script src="script.js"></script>
+<!--フォントの読み込み-->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Damion&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+
+<script type="text/javascript">
+
+(function($) {
+    $(function() {
+        $('#nav-toggle').on('click', function() {
+            $('body').toggleClass('open');
+        });
+    });
+})(jQuery);
+</script>
+
+<div id="nav-toggle">
+<div>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+</div>
+ 
+<div id="nav-circle-bg"></div>
+<nav id="nav">
+<ul>
+    <li><a href="top.html">Home</a></li>
+    <li><a href="move.html">Movie</a></li>
+    <li><a href="about.html">Gallery</a></li>
+    <li><a href="link.html">Link</a></li>
+</ul>
+</nav>
+</head>
+
+
+
+
+<body>
+  <div class="footerFixed">
+  <div id="hut">
+  <div id="container">
+  <h1>Movie</h1>
+  <h2>映像(音が鳴ります)</h2>
+<div class="wrap-video">
+<video width="640" height="360" preload="none" src="video/タイトルコール.mp4" controls poster="円.png">
+  <p>お使いのブラウザではvideoタグの動画を再生できません。</p></video>
+</div>
+
+
+</div>
+<footer id="footer">
+　<p class="fot">Copyright © 2021 satou-job.</p>
+</footer>
+</div>
+</div>
+</body>
+
+
+
+</html>
