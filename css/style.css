@@ -1,0 +1,917 @@
+@charset "utf-8";
+/* すべてのWebページに適応される　*/
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
+body{
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    background-color:#f0f0ef;
+}
+#wrap{
+    margin: 0 auto 0 auto;
+    width: 900px;
+}
+
+
+.center{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -86px;
+
+  text-align: center;
+  position: sticky;
+  color: #333;
+  padding: 11rem 1rem;
+
+}
+
+.wrap-video{
+    position: relative;
+    text-align: center;
+    align-items: center;
+    margin: 1em;
+
+
+}
+
+.wrap-video video{
+
+	width:200px;
+ height:133px;
+  width: 80%;
+  height:80%
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*パスワード入力ボタンのデザイン*/
+.pass{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -86px;
+  margin-left: -175px;
+  text-align: center;
+}
+
+
+.pass-button{
+  -webkit-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -moz-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -ms-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  -o-transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  transition: all 200ms cubic-bezier(0.390, 0.500, 0.150, 1.360);
+  display: block;
+  margin: 20px auto;
+  max-width: 500px;
+  text-decoration: none;
+  border-radius: 4px;
+  padding: 20px 30px;
+
+
+  color: rgba(30, 22, 54, 0.6);
+  box-shadow: rgba(30, 22, 54, 0.4) 0 0px 0px 2px inset;
+}
+
+.pass-button:hover{
+  color: rgba(255, 255, 255, 0.85);
+  box-shadow: rgba(51, 51, 51, 1) 0 0px 0px 40px inset;
+}
+
+
+
+
+
+
+/*ここからタブメニューの記述です*/
+
+/* ========================
+* Navigation Circle BG
+* ======================== */
+#nav-circle-bg {
+	z-index: 20;
+    /*この下の表記はうにょッと出てくる円の記述です。heightを600から800にしています*/
+    position: fixed;
+    background: #fff;
+    width: 600px;
+    height: 800px;
+
+    top: 50%;
+    right: -600px;
+    margin-top: -300px;
+    border-radius: 50%;
+    transition: transform .5s ease;
+    transition-delay: .6s;
+}
+.open #nav-circle-bg {
+    transform: matrix(2.7, 0, 0, 2.7, 0, 0);
+    transition-delay: 0s;
+}
+ 
+/* ========================
+* Navigation
+* ======================== */
+/*font-sizeを32から40に変えています。それ以外はかえないでいい*/
+#nav {
+	z-index: 30;
+    position: fixed;
+    font-size: 40px;
+    height: 100%;
+    width: 500px;
+    right: -500px;
+    display: flex;
+    align-items: center; 
+}
+ 
+#nav ul {
+    width: 100%;
+    list-style: none;
+}
+ 
+/* ========================
+* Navigation Animation
+* ======================== */
+#nav li {
+    transition: transform .5s ease;
+    transition-delay: 0;
+}
+#nav li:nth-child(1) {
+    transition-delay: 0;
+}
+#nav li:nth-child(2) {
+    transition-delay: .1s;
+}
+#nav li:nth-child(3) {
+    transition-delay: .2s;
+}
+#nav li:nth-child(4) {
+    transition-delay: .3s;
+}
+ 
+.open #nav li {
+    transform: translateX(-400px);
+}
+.open #nav li:nth-child(1) {
+    transition-delay: .3s;
+}
+.open #nav li:nth-child(2) {
+    transition-delay: .4s;
+}
+.open #nav li:nth-child(3) {
+    transition-delay: .5s;
+}
+.open #nav li:nth-child(4) {
+    transition-delay: .6s;
+}
+ 
+/* ========================
+* Navigation Button
+* ======================== */
+#nav a {
+    width: 100%;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 15px 0;/*メニューの記述の空白10から15に変更*/
+    font-family: 'Fredoka One', cursive;
+    font-size: 50px;/*メニューの文字サイズ指定*/
+}
+#nav a:after {
+    content: "";
+    display: block;
+    background: #c24856;
+    width: 0;
+    height: 1px;
+    transition: width 1s ease;
+    font-family: 'Fredoka One', cursive;
+}
+#nav a:hover {
+    color: #c24856;
+    font-family: 'Fredoka One', cursive;
+}
+#nav a:hover:after {
+    width: 100%;
+}
+ 
+/* ========================
+* nav-toggle
+* ======================== */
+#nav-toggle {
+    position: fixed;
+    top: 15px;/*黒いボタンの位置上下*/
+    right: 15px;/*黒いボタンの位置左右*/
+    width: 56px;
+    height: 56px;
+    padding: 19px 13px 0;/*黒いボタンの縦横比率？*/
+    background: #212121;/*黒いボタンの色*/
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+}
+#nav-toggle > div {
+    position: relative;
+    margin-top:-2px;/*白いボーダーの高さ*/
+}
+#nav-toggle span {
+  border-radius: 40%;/*白いボーダーの角丸*/
+    width: 100%;/*白いボーダーの大きさ*/
+    height: 3px;/*白いボーダーの太さ*/
+    left: 0;
+    display: block;
+    background: #fff;/*白いボーダーの色*/
+    position: absolute;
+    transition: .35s ease-in-out;
+}
+ 
+#nav-toggle span:nth-child(1) {
+    top: 0;
+}
+#nav-toggle span:nth-child(2) {
+    top: 10px;
+}
+#nav-toggle span:nth-child(3) {
+    top: 20px;
+}
+ 
+.open #nav-toggle span:nth-child(1) {
+    top: 10px;
+    transform: rotate(45deg);
+}
+.open #nav-toggle span:nth-child(2) {
+    width: 0;
+    left: 50%;
+}
+.open #nav-toggle span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-45deg);
+}
+
+/*タブメニューの記述終わり*/
+
+
+
+
+
+
+h1 {
+margin-top:-10px;
+text-align: center;
+  color: #333;
+  font-family: 'Damion', cursive;
+  font-size: 80px;
+  padding-bottom: .15em;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.wf-roundedmplus1c { font-family: "Rounded Mplus 1c"; }
+h2 {
+  width: 900px;
+  
+  
+  position:relative;
+  left: 50px;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-left: 10px double #999999;
+  
+}
+
+
+
+h4 {
+margin-top:-10px;
+text-align: center;
+  color: #333;
+  font-family: "メイリオ";
+  font-size: 30px;
+  padding-bottom: .15em;
+  
+}
+
+
+h5 {
+margin-top:-10px;
+text-align: center;
+  color: #333;
+  font-family: "メイリオ";
+  font-size: 20px;
+  padding-bottom: .15em;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*画像*/
+.gallery nav {
+    text-align: center;
+    line-height: 0;/*白い余白を消すための記述*/
+}
+.gallery nav li {
+  list-style: none;/*追加*/
+  margin: 30px 10px 20px;/*追加。これはサムネイル群全体の余白設定。*/
+    /*margin: 0 12px;*/
+    display: inline-block;
+}
+.gallery nav a {
+    display: block;
+    box-shadow: 0 0 10px rgba(00,00,00,.5);
+    background-color: #ffffff;
+}
+.gallery nav a img {
+
+width: 200px;/*追加*/
+  height: 200px;/*追加*/
+  object-fit: cover;/*追加*/
+  margin: 0;/*白い余白を消すための記述*/
+  padding: 0;/*白い余白を消すための記述*/
+
+
+    -webkit-transition: .2s linear;
+    -moz-transition: .2s linear;
+    -o-transition: .2s linear;
+    opacity: 1;
+}
+.gallery nav a:hover img {
+    opacity: .5;
+}
+
+.lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  display: none;
+}
+
+.lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-weight: normal;
+
+}
+
+.lightbox .lb-image {
+  display: block;
+  height: auto;
+  max-width: inherit;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.lightbox a img {
+  border: none;
+}
+
+
+
+
+
+
+
+
+
+/*====================================================================
+slick
+====================================================================*/
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+* {
+  box-sizing: border-box;
+}
+.sliderArea {
+	z-index: 10;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+.sliderArea.w300 {
+  max-width: 300px;
+}
+.slick-slide {
+  margin: 0 5px;
+}
+.slick-slide img {
+  width: 100%;
+  height: auto;
+}
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+.slick-prev:before, .slick-next:before {
+  color: #000;
+}
+.slick-slide {
+  transition: all ease-in-out .3s;
+  opacity: .2;
+}
+.slick-active {
+  opacity: 1;
+}
+.slick-current {
+  opacity: 1;
+}
+.thumb {
+  margin: 20px 0 0;
+}
+.thumb .slick-slide {
+  cursor: pointer;
+}
+.thumb .slick-slide:hover {
+  opacity: .7;
+}
+
+
+
+
+
+
+
+
+
+.regular .slick-dots {
+	bottom: -33px;
+/*ボタン位置*/
+}
+
+}
+.regular .slick-dots li button {
+
+	width: 58px;
+	height: 58px;
+}
+
+/*====================================================================
+以下は不要です。
+====================================================================*/
+/*ここからタブメニューの記述です*/
+
+/* ========================
+* Navigation Circle BG
+* ======================== */
+#nav-circle-bg {
+    /*この下の表記はうにょッと出てくる円の記述です。heightを600から800にしています*/
+    position: fixed;
+    background: #fff;
+    width: 600px;
+    height: 800px;
+
+    top: 50%;
+    right: -600px;
+    margin-top: -300px;
+    border-radius: 50%;
+    transition: transform .5s ease;
+    transition-delay: .6s;
+}
+.open #nav-circle-bg {
+    transform: matrix(2.7, 0, 0, 2.7, 0, 0);
+    transition-delay: 0s;
+}
+ 
+/* ========================
+* Navigation
+* ======================== */
+/*font-sizeを32から40に変えています。それ以外はかえないでいい*/
+#nav {
+    position: fixed;
+    font-size: 40px;
+    height: 100%;
+    width: 500px;
+    right: -500px;
+    display: flex;
+    align-items: center; 
+}
+ 
+#nav ul {
+    width: 100%;
+    list-style: none;
+}
+ 
+/* ========================
+* Navigation Animation
+* ======================== */
+#nav li {
+    transition: transform .5s ease;
+    transition-delay: 0;
+}
+#nav li:nth-child(1) {
+    transition-delay: 0;
+}
+#nav li:nth-child(2) {
+    transition-delay: .1s;
+}
+#nav li:nth-child(3) {
+    transition-delay: .2s;
+}
+#nav li:nth-child(4) {
+    transition-delay: .3s;
+}
+ 
+.open #nav li {
+    transform: translateX(-400px);
+}
+.open #nav li:nth-child(1) {
+    transition-delay: .3s;
+}
+.open #nav li:nth-child(2) {
+    transition-delay: .4s;
+}
+.open #nav li:nth-child(3) {
+    transition-delay: .5s;
+}
+.open #nav li:nth-child(4) {
+    transition-delay: .6s;
+}
+ 
+/* ========================
+* Navigation Button
+* ======================== */
+#nav a {
+    width: 100%;
+    display: block;
+    color: #333;
+    text-decoration: none;
+    padding: 15px 0;/*メニューの記述の空白10から15に変更*/
+    font-family: 'Fredoka One', cursive;
+    font-size: 50px;/*メニューの文字サイズ指定*/
+}
+#nav a:after {
+    content: "";
+    display: block;
+    background: #c24856;
+    width: 0;
+    height: 1px;
+    transition: width 1s ease;
+    font-family: 'Fredoka One', cursive;
+}
+#nav a:hover {
+    color: #c24856;
+    font-family: 'Fredoka One', cursive;
+}
+#nav a:hover:after {
+    width: 100%;
+}
+ 
+/* ========================
+* nav-toggle
+* ======================== */
+#nav-toggle {
+    position: fixed;
+    top: 15px;/*黒いボタンの位置上下*/
+    right: 15px;/*黒いボタンの位置左右*/
+    width: 56px;
+    height: 56px;
+    padding: 19px 13px 0;/*黒いボタンの縦横比率？*/
+    background: #212121;/*黒いボタンの色*/
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+}
+#nav-toggle > div {
+    position: relative;
+    top: 0px;/*白いボーダーの高さ*/
+}
+#nav-toggle span {
+  border-radius: 40%;/*白いボーダーの角丸*/
+    width: 100%;/*白いボーダーの大きさ*/
+    height: 3px;/*白いボーダーの太さ*/
+    left: 0;
+    display: block;
+    background: #fff;/*白いボーダーの色*/
+    position: absolute;
+    transition: .35s ease-in-out;
+}
+ 
+#nav-toggle span:nth-child(1) {
+    top: 0;
+}
+#nav-toggle span:nth-child(2) {
+    top: 10px;
+}
+#nav-toggle span:nth-child(3) {
+    top: 20px;
+}
+ 
+.open #nav-toggle span:nth-child(1) {
+    top: 10px;
+    transform: rotate(45deg);
+}
+.open #nav-toggle span:nth-child(2) {
+    width: 0;
+    left: 50%;
+}
+.open #nav-toggle span:nth-child(3) {
+    top: 10px;
+    transform: rotate(-45deg);
+}
+/*タブメニューの記述終わり*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'feathericons';
+	src:url('../fonts/feathericons/feathericons.eot?-8is7zf');
+	src:url('../fonts/feathericons/feathericons.eot?#iefix-8is7zf') format('embedded-opentype'),
+		url('../fonts/feathericons/feathericons.woff?-8is7zf') format('woff'),
+		url('../fonts/feathericons/feathericons.ttf?-8is7zf') format('truetype'),
+		url('../fonts/feathericons/feathericons.svg?-8is7zf#feathericons') format('svg');
+}
+
+.grid {
+	z-index: 10;
+
+	max-width: 100%;
+    height: auto;
+    
+
+
+ 
+
+
+
+
+	position: relative;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	max-width: 1000px;
+	list-style: none;
+	text-align: center;
+}
+
+/* Common style */
+.grid figure {
+	position: relative;
+	float: left;
+	overflow: hidden;
+	margin: -5px 1%;
+	min-width: 320px;
+	max-width: 480px;
+	max-height: 360px;
+	width: 48%;
+	background: #f0f0ef;
+	text-align: center;
+	cursor: pointer;
+}
+
+.grid figure img {
+	position: relative;
+	display: block;
+	min-height: 100%;
+	max-width: 100%;
+	opacity: 0.8;
+	padding: 0 3px 0 3px;
+}
+
+.grid figure figcaption {
+	padding: 2em;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 1.25em;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+	pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure figcaption > a {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+.grid figure figcaption > a {
+	z-index: 1000;
+	text-indent: 200%;
+	white-space: nowrap;
+	font-size: 0;
+	opacity: 0;
+}
+
+.grid figure h3 {
+	word-spacing: -0.15em;
+	font-weight: 300;
+}
+
+.grid figure h3 span {
+	font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+	margin: 0;
+}
+
+.grid figure p {
+	letter-spacing: 1px;
+	font-size: 68.5%;
+}
+/*---------------*/
+/***** Marley *****/
+/*---------------*/
+
+figure.effect-marley figcaption {
+	text-align: right;
+}
+
+figure.effect-marley h3,
+figure.effect-marley p {
+	position: absolute;
+	right: 30px;
+	left: 30px;
+	padding: 10px 0;
+}
+
+
+figure.effect-marley p {
+	bottom: 30px;
+	line-height: 1.5;
+	-webkit-transform: translate3d(0,100%,0);
+	transform: translate3d(0,100%,0);
+}
+
+figure.effect-marley h3 {
+	top: 30px;
+	-webkit-transition: -webkit-transform 0.35s;
+	transition: transform 0.35s;
+	-webkit-transform: translate3d(0,20px,0);
+	transform: translate3d(0,20px,0);
+}
+
+figure.effect-marley:hover h3 {
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+figure.effect-marley h3::after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #fff;
+	content: '';
+	-webkit-transform: translate3d(0,40px,0);
+	transform: translate3d(0,40px,0);
+}
+
+figure.effect-marley h3::after,
+figure.effect-marley p {
+	opacity: 0;
+	-webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+	transition: opacity 0.35s, transform 0.35s;
+}
+
+figure.effect-marley:hover h3::after,
+figure.effect-marley:hover p {
+	opacity: 1;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate3d(0,0,0);
+}
+
+
+
+
+
+#footer {
+ 
+  width:100%;/*フッター横幅*/
+  height: 3em;/*フッター太さ*/
+  top:1100px;
+  background-color: #333;
+}
+
+
+
+footer{
+    position:absolute;/* ←絶対位置 */
+    bottom: 0;
+    text-align: right;
+    padding: 0 20px 0 0;
+    /* 以下 背景色やテキストカラーなどはお好みで指定してください */
+
+    
+}
+
+.fot {color: #fff;
+    text-align: right;
+ display: inline-block;
+margin: 10px 0px 0px 0px;
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+
+img{
+    max-width: 100%;
+    height: auto;
+    margin : 0 auto
+    padding: 1em;
+}
+
+
+ }
+ @media screen and (max-width: 767px) {
+     .grid {
+         display: block;
+     }
+     .grid .box1 {
+         width: 100%;
+         margin: 0 auto;
+     }
+     .grid .box2 {
+         width: 100%;
+         margin: 0 auto;
+     }
